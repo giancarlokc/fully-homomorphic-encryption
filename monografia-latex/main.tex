@@ -1,0 +1,98 @@
+\documentclass{projetofinal-dcc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%P A C O T E S
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Adicione aqui seus pacotes
+\usepackage{ tipa }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%I N I C I O  D O  D O C U M E N T O
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% título da tese é obrigatório
+\title{Análise do Sistema de Criptografia Completamente Homomórfico de Gentry}
+
+% autor
+\author{Giancarlo Klemm Camilo}{\input{elementos-pretextuais/agradecimentos}}
+
+% orientador
+\advisor[Prof.]{Luiz Carlos Pessoa Albini,~Ph.D.}{}
+
+% banca
+\banca[Prof.]{Nome do participante banca 1,~D.Sc.}{UFPR}
+\banca[Prof.]{Nome do participante banca 2,~Ph.D.}{UFPR}
+\banca[Prof.]{Nome do participante banca 3,~Ph.D.}{UFPR}
+
+% local
+\location{Curitiba}{PR}{Brasil}
+
+% mês e ano de defesa
+\date{Dezembro}{2015}
+
+\maketitle
+
+\startdocument
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%A G R A D E C I M E N T O S
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\makethankspage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%R E S U M O
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}{
+  \input{elementos-pretextuais/resumo}
+}
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%A B S T R A C T
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{englishabstract}{
+  \input{elementos-pretextuais/abstract}
+}
+\end{englishabstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%L I S T A S
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Figuras
+%\makefigurespage
+
+% Tabelas
+%\maketablespage
+
+% Algoritmos
+%\makelistingspage
+
+% Abreviaturas (devem estar em ordem alfabética)
+\makeabrevpage{\input{elementos-pretextuais/abreviaturas}}
+
+% Símbolos (devem estar em ordem alfabética)
+% \makesymbolspage{\input{elementos-pretextuais/simbolos}}
+
+% Sumário 
+\maketocpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%C O N T E Ú D O
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\startcontent
+\input{elementos-textuais/topico-1}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% B I B L I O G R A F I A
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Retirar esta parte se o trabalho não tiver bibliografia
+\makebibspage{abnt}{elementos-postextuais/referencias}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A P E N D I C E
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Retirar esta parte se o trabalho não tiver anexos
+%\appendix
+%\input{elementos-postextuais/apendice}
+
+\end{document}
