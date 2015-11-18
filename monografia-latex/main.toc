@@ -5,13 +5,26 @@
 \contentsline {chapter}{Lista de Abreviaturas e Siglas}{iv}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Criptografia Completamente Homom\IeC {\'o}rfica}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introdu\IeC {\c c}\IeC {\~a}o}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Criptografia completamente homom\IeC {\'o}rfica}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Constru\IeC {\c c}\IeC {\~a}o do sistema}{2}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Sistema parcialmente homom\IeC {\'o}rfico}{4}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}De parcialmente para completamente homom\IeC {\'o}rfico}{5}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Altera\IeC {\c c}\IeC {\~o}es do no sistema parcialmente homom\IeC {\'o}rfico}{6}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Seguran\IeC {\c c}a}{7}{subsection.1.3.4}
-\contentsline {section}{\numberline {1.4}Aplica\IeC {\c c}\IeC {\~o}es}{7}{section.1.4}
-\contentsline {section}{\numberline {1.5}Implementa\IeC {\c c}\IeC {\~a}o do algoritmo}{7}{section.1.5}
-\contentsline {section}{\numberline {1.6}Testes e Compara\IeC {\c c}\IeC {\~o}es}{7}{section.1.6}
-\contentsline {section}{\numberline {1.7}Conclus\IeC {\~o}es}{7}{section.1.7}
+\contentsline {section}{\numberline {1.2}Criptografia completamente homom\IeC {\'o}rfica}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Aplica\IeC {\c c}\IeC {\~o}es}{4}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Computa\IeC {\c c}\IeC {\~a}o em nuvem}{4}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Secure multi-party computing}{5}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Assinaturas homom\IeC {\'o}rficas para network coding}{5}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Outras}{6}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Limita\IeC {\c c}\IeC {\~o}es atuais}{6}{subsection.1.3.5}
+\contentsline {section}{\numberline {1.4}Constru\IeC {\c c}\IeC {\~a}o do sistema}{7}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Sistema parcialmente homom\IeC {\'o}rfico}{8}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}De parcialmente para completamente homom\IeC {\'o}rfico}{9}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Simplificando a descriptografia}{10}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Como as opera\IeC {\c c}\IeC {\~o}es funcionam}{11}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Seguran\IeC {\c c}a}{12}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Ataques conhecidos}{12}{subsection.1.5.1}
+\contentsline {section}{\numberline {1.6}Implementa\IeC {\c c}\IeC {\~a}o do algoritmo}{14}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}O que est\IeC {\'a} implementado}{14}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Diferen\IeC {\c c}as entre a implementa\IeC {\c c}\IeC {\~a}o e o sistema de Gentry}{14}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Testes e Compara\IeC {\c c}\IeC {\~o}es}{15}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Arquitetura usada}{15}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Implementa\IeC {\c c}\IeC {\~a}o usada para compara\IeC {\c c}\IeC {\~a}o}{15}{subsection.1.7.2}
+\contentsline {subsection}{\numberline {1.7.3}Metodolog\IeC {\'\i }a}{15}{subsection.1.7.3}
+\contentsline {subsection}{\numberline {1.7.4}Resultados}{16}{subsection.1.7.4}
+\contentsline {section}{\numberline {1.8}Conclus\IeC {\~o}es}{17}{section.1.8}
