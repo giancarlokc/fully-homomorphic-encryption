@@ -2,10 +2,13 @@
 
 \section{Introdução}\label{sec:LABEL_CHP_1_SEC_A}
 Esta monografia tem como objetivo apresentar o problema da Criptografia Completamente Homomórfica com suas possíveis aplicações e limitações.
-Essa criptografia, apesar de recente, tem a capacidade de inovar o campo de computação em nuvem, uma vez que ela torna possível a confidencialidade neste sistema.
-A solução apresentada por Gentry para o problema de Criptografia Completamente Homomórfica, atualmente considerado a melhor solução para tal problema, é descrita com relação a criptografia sobre inteiros e seu método de construção é explicado seguindo os passos de contrução originais.
+Essa criptografia, apesar de recente, tem a capacidade de inovar o campo da computação em nuvem, pois ela não necessita que os dados sejam descriptografados para que operações sejam aplicadas nos dados originais.
+A solução apresentada por Gentry para o problema de Criptografia Completamente Homomórfica, atualmente considerada a melhor solução para tal problema, é descrita com relação a criptografia sobre inteiros e seu método de construção é explicado seguindo os seus passos de contrução originais.
 
-Uma seção é dedicada a verificar a segurança deste sistema de criptografia, verificando o que garante que nenhuma informação seja liberada quando operações são aplicadas ao texto criptografado uma vez que uma dica sobre a chave privada é inserida.
+Possíveis aplicações para esse sistema são discutidas, mostrando qual o papel da criptografia completamente homomórfica nelas e qual a viabilidade de implementação delas.
+
+Uma seção é dedicada a verificar a segurança deste sistema de criptografia, verificando o que garante que nenhuma informação seja liberada quando operações são aplicadas ao texto criptografado uma vez que uma dica sobre a chave privada é inserida na chave pública.
+
 Além disso, testes foram realizados utilizando uma implementação deste sistema de criptografia \footnote{A implementação escolhida é baseada na criptografia com relação a inteiros, que é explicada em \cite{art:REF_ART_1}} e seus resultados foram comparados com outros sistemas de criptografia conhecidos, como RSA.
 
 Concluímos com algumas observações sobre as diferenças entre essa criptografia e outras criptografias assimétricas, limitações atuais, possibilidades futuras e melhorias necessárias para fazer com que a criptografia completamente homomórfica possa ser usada em larga escala.
@@ -13,47 +16,49 @@ Concluímos com algumas observações sobre as diferenças entre essa criptograf
 \newpage
 
 \section{Criptografia completamente homomórfica}\label{sec:LABEL_CHP_1_SEC_B}
-Um sistema de criptografia é chamado de homomórfico quando é possível fazer operações matemáticas nos dados criptografados de modo que, quando eles forem descriptografados, as operações matemáticas foram aplicadas aos dados originais, sem que informações sobre o texto original tenham vazado.
+	\subsection{Origens}
+	Um sistema de criptografia é chamado de homomórfico quando é possível fazer operações matemáticas nos dados criptografados de modo que, quando eles forem descriptografados, as operações matemáticas foram aplicadas aos dados originais, sem que informações sobre o texto original tenham vazado.
 Ou seja, um número \(x\) é criptografado e uma operação de multiplicação por 2 é feita nos dados criptografados, quando os dados forem criptografados o resultado será \(2*X\).
 
 Essa noção de criptografia foi formalmente apresentada logo após a invenção do RSA quando foi observado que ele é homomórfico em relação a multiplicação, porém não para adição.
 Isso levou a inevitável questão de se é possivel criar um sistema que seja homomórfico com relação a adição e multiplicação (Completamente homomórfico) e o que podemos fazer com tal sistema.
 
-Como qualquer função computacional pode ser representada por adições e multiplicações, isso significa que poderiamos executar qualquer função sem saber os dados originais. Várias aplicações seriam possíveis para um sistema como este, tais como computação em nuvem compatível com privacidade, bancos de dados privados, tercerização de processamento de modo seguro, entre outros descritos na seção seguinte.
-
-Só depois de 30 anos após a invenção do RSA uma solução plausível foi encontrada.
-Ela foi apresentada por Gentry em * e sua construção é explicada em detalhes na seção *.
+	\subsection{Definição}
+	Um sistema de criptografia é completamente homomórfico quando é possível executar adições e multiplicações sobre os dados criptografados, sem limite no número de operações a serem feitas em sequência.
+	Como qualquer função computacional pode ser representada por adições e multiplicações, isso significa que poderiamos executar qualquer função sem saber os dados originais. Várias aplicações seriam possíveis para um sistema como este, tais como computação em nuvem compatível com privacidade, bancos de dados privados, tercerização de processamento de modo seguro, entre outros descritos na seção seguinte.
+	
+	\subsection{O sistema estudado}
+	Só depois de 30 anos após a invenção do RSA, uma solução plausível foi encontrada para o problema da criptografia completamente homomórfica. Ela foi apresentada por Gentry em *. Sua primeira solução é mais teórica e generalizada então a construção explicada e testada nesta monografia é baseada no sistema completamente homomórfico sobre inteiros de Gentry, Halevi, Dijk e Vaikuntanathan que se baseia nos mesmo princípios.
 
 \newpage
   
 \section{Aplicações}\label{sec:LABEL_CHP_1_SEC_E}
-Possível aplicações para um sistema completamente homomórfico...
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A maior parte das aplicações para um sistema de criptografia completamente homomórfico está na alteração de aplicações já existentes, de modo que elas possam ser utlizadas de modo completamente seguro. Alguns exemplos são:
 
 	\subsection{Computação em nuvem}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Atualmente o uso da 'nuvem' está ficando cada vez mais comum. Porém nossos dados, por estarem em algum servidor público, não estão completamente seguros e eventualmente a segurança desses servidores pode ser comprometida por meio de ataques ao servidor ou outra atividade ilícita.
+	Hoje o que podemos fazer para ter mais segurança é manter os nossos dados criptografados na nuvem. Mas se quisermos utilizar esses dados, eles devem ser baixados e manipulados localmente, indo de encontro com o propósito da computação em nuvem.
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Com a criptografia completamente homomórfica é possível fazer buscar e alterações sobre dados criptografados, ou seja, é possível buscar arquivos por palavra-chave mesmo que o servidor não tenha conhecimento dos dados do arquivos. Deste pode realmente é possível delegar processamento de modo seguro.
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	\subsection{Buscas seguras}
+	Também é possível fazer buscar criptografadas em "search-engines". Os arqumentos da busca podem ser criptografados pela CCH e usados no servidor em um circuito que representa a função de busca do servidor. As funções desse circuito podem fazer as comparações com os dados criptografados sem nunca saber seus valores reais.
+	O resultado do circuito é um texto criptografado, que pode ser descriptografado pela pessoa que criptografou os parametros da busca. Desse modo a busca é completamente sigilosa.
 	
-	\subsection{Secure multi-party computing}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	\subsection{Segurança de software}
+	Uma possível aplicação é a segurança de software, onde os valores de um programa permancem criptografados na memória. Cada operação do programa sobre os dados pode ser representada por um circuito de NANDs e aplicada aos dados e os dados só precisam ser descriptografados na saída do programa.
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	\subsection{Re-criptografia de Proxys}
+	Utilizando uma propriedade da criptografia completamente homomórfica é possivel fazer com que um texto criptografado por uma chave pública \( a \), possa ser transaformado em um texto criptografado por \( b\), sem que a chave privada de \( a \) ou o textos original sejam comprometidos.
+	Ou seja, o proxy dono da chave pública \( a \) pode enviar uma mensagem para um outro proxy com chave pública \( b \) de modo seguro.
 	
-	\subsection{Assinaturas homomórficas para network coding}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Sistemas que permitem esse comportamento já existem porém eles podem não ser bilaterais, ou seja, conseguem mudar a criptografia de \(a\) para \(b\) mas não de \(b\) para \(a\). Ou tem limitações sobre o número de vezes que uma mensagem pode ser recriptografada. A CCH não tem tais limitações.
 
-	\subsection{Outras}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	\subsection{Filtros de emails sigilosos}
+	Em um sistema onde os emails são criptografados para que apenas o usuario tenha acesso os dados, usando a CCH é possível executar filtros sobre os emails com relação a palavras dentro do email, destinatário, etc, sem que o servidor tenha acesso direto aos dados.
 	
 	\subsection{Limitações atuais}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Grande parte da limitação atual está na velocidade do sistema e no tamanho dos textos criptografados. A criptografia funciona gerando um inteiro para cada bit do texto original, fazendo com que os textos criptografados sejam muito grandes, além das própias funções de criptografar, descriptografar e executar funções também serem lentas para os padrões de hoje.
 	
 \newpage
 
@@ -179,14 +184,42 @@ A implementação usada para testes com criptografia completamente homomórfica 
 	O algoritmo RSA foi usado como comparação com o sistema completamente homomórfico pois ele é usado em larga escala atualmente, além de ser a origem da CCH. A implementação utilizada foi a *\footnote{Pode ser encontrada em *} por ser próxima a um RSA puro (sem otimizações) e por ser na mesma linguagem que a implementação do CCH.
 	
 	\subsection{Metodología}
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Podemos dividir a comparação em três etapas: velocidade, segurança e funcionalidades.
+	
+	Para comparar a velocidade dos dois tipos de criptografia os testes foram realizados em um conjunto de 100 strings de 80 bits cada (10 caracteres). Cada string é criptografada usando RSA e CCH, e em seguida ela é descriptografada. O tempo médio das operações do RSA para as 100 strings é calculado e comparado com as do CCH. Ainda na seção de velocidade olhamos para o tempo geração e o tamanho das chaves geradas pelos sistemas.
+	
+	Para comparar a segurança podemos olhar para estratégias comuns de ataques e calcular a probabilidade de tal ataque ser bem sucedido para cada criptografia.
+	
+	Para comparar a funcionalidade olhamos para o que a criptografia pode oferecer, e baseado nas comparações anteriores quais são os pontos fortes e pontos fracos de cada uma.
 	
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	
-	\subsection{Resultados}
+	\subsection{Comparações e Resultados}
+	É possivel ver que o sistema atual de criptografia completamente homomórfica é muito mais lento do que o RSA. Os tempos obtidos nos testes são podem ser vistos na tabela *.
+	
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{ |l|l|l|l| }
+    \hline
+      Sistema & Criptografia & Descriptografia & Operação NAND \\
+    \hline
+      RSA & 0.0 ms & 0.0 ms & 0.0 ms \\
+    \hline
+      CCH & 0.0 ms & 0.0 ms & 0.0 ms \\
+    \hline
+  \end{tabular}
+  \caption{Média dos tempos dos testes}
+  \label{tab:LABEL_TAB_RESULTADOS}
+\end{table}
+
+	Outra diferença é o tamanho das chaves geradas onde o RSA gera chaves com tamanhos X e Y para chave pública e secreta respectivamente e o CCH gera chaves com tamanhos Z e W para chave pública e secreta respectivamente. O tempo para criptografar e descriptografar é o que faz com que a CCH não possa ser usada em larga escala, mas é possivel ver avanços que estão sendo feitos para tornar essa criptografia mais utilizável. Um exemplo é * que mostra um modo de gerar uma chave comprimida (De 2GB para 20Mb?), enquanto * mostra várias otimizações que tendem a diminuir o tempo para criptografar e descriptografar.
+	
+	Com relação a segurança destes dois sistemas é possível dizer que nos dois casos ela se baseia no problema NP-Complexo de máximo divisor comum,
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	O RSA é usado na maioria das aplicações que usam criptografia assimétrica, além de possibilitar assinaturas digitais e é considerado um dos algorimos assimétricos mais seguros já construídos.
+	Mas na questão de funcionalidade, apesar do RSA ser muito presente hoje em dia, a CCH é muito mais versátil e torna muitas aplicações possíveis pois ele mantém a segurança do RSA mas o extende para ter total sigilo\footnote{Por total sigilo se quer dizer que nem quem faz operações nos dados consegue vê-los} sobre os dados criptografados.
+	Obviamente cada criptigrafia tem um uso diferente mas é possível ver que a CCH tem a capacidade de revolucionar o campo da criptografia, assim como o RSA fez quando foi criado.
 
 \newpage
 
