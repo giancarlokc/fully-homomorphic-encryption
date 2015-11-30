@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{gentryhalevi}
+Shai~Halevi Craig~Gentry.
+\newblock Implementing gentry’s fully-homomorphic encryption scheme, 2011.
+\newblock Disponível em: https://eprint.iacr.org/2010/520.pdf.
+
+\bibitem{gentrythesis}
+Craig Gentry.
+\newblock A fully homomorphic encryption scheme.
+\newblock Disponível em: https://crypto.stanford.edu/craig/craig-thesis.pdf.
+
+\bibitem{easyfhe}
+Craig Gentry.
+\newblock Computing arbitrary functions of encrypted data, 2010.
+\newblock Disponível em: https://crypto.stanford.edu/craig/easy-fhe.pdf.
+
+\bibitem{fheintegers}
+Shai Halevi Vinod~Vaikuntanathan Marten~van Dijk, Craig~Gentry.
+\newblock Fully homomorphic encryption over the integers, 2010.
+\newblock Disponível em: https://eprint.iacr.org/2009/616.pdf.
+
+\bibitem{rothblum}
+Ron Rothblum.
+\newblock Homomorphic encryption: from private-key to public-key, 2010.
+\newblock Disponível em: http://eccc.hpi-web.de/report/2010/146/.
+
+\end{thebibliography}

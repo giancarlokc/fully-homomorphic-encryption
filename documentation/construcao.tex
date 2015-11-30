@@ -1,0 +1,92 @@
+\chapter{Construção do sistema}
+\label{construcao}
+O sistema apresentado por Gentry é um sistema de criptografia assimétrico com quatro algoritmos básicos: \textit{KeyGen}, \textit{Encrypt}, \textit{Decrypt} e \textit{Evaluate}. $KeyGen$ gera uma chave pública (Disponível para qualquer um) e uma chave privada, o algoritmo $Encrypt$ usa a chave pública para criptografar os dados e o algoritmo $Decrypt$ usa a chave privada para descriptografar os dados. A diferença desse modelo para um sistema de chave pública não completamente homomórfico está no algoritmo $Evaluate$. Este algoritmo suporta certas funções que podem ser aplicadas nos dados, de modo que para cada função \textit{f} o algoritmo $Evaluate$ recebe um texto que criptografa os dados $(m_1, m_2, ..., m_i)$ e retorna um texto que criptografa $f(m_1, m_2, ..., m_i)$.
+
+Para que o sistema seja completamente homomórfico, o algoritmo \textit{Evaluate} deve computar qualquer algoritmo de computador. Um modelo equivalente é a máquina de Turing, que pode simular qualquer algoritmo usando adições e multiplicações\footnote{Multiplicações modulo 2}. Logo, nosso algoritmo só precisa computar essas duas funções.
+
+Antes de começar a construção precisamos formalizar algumas restrições para o sistema de criptografia, uma vez que o objetivo desse tipo de criptografia é que o 'processamento' possa ser delegado de modo seguro.
+\begin{itemize}
+	\item A complexidade para descriptografar a saída de \textit{Evaluate} deve ser igual a de descriptografar a saída de \textit{Decrypt};
+	\item As saídas dessas funções devem ter o mesmo tamanho;
+	\item A complexidade para descriptografar deve ser independente da complexidade das funções suportadas por $Evaluate$;
+	\item E a função $Evaluate$ deve ser eficiente, ou seja, deve depender polinomialmente somente do tamanho da chave e da complexidade das funções suportadas (A complexidade das funções pode ser medida pelo tempo requerido em uma máquina de turing ou, análogamente, pelo tamanho de um circuito boleano necessário para computar a função).
+\end{itemize}
+
+Para chegar a um sistema completamente homomórfico, Gentry mostra a construção de um sistema \textbf{parcialmente homomórfico}, onde o algoritmo $Evaluate$ pode computar um número limitado de funções, porém não funções muito complicadas. Em seguida esse sistema é extendido para que possa executar qualquer função, ou seja, ele se torna \textbf{completamente homomórfico}.
+
+\section{Sistema parcialmente homomórfico}
+Para um parâmetro de segurança $\lambda$, o sistema parcialmente homomórfico funciona da seguinte maneira:
+\begin{itemize}
+	\item $KeyGen(\lambda)$: A chave privada $sk$ é um inteiro de $\lambda^2$  bits. Seguindo o modelo de ~\cite{rothblum}, a chave pública $pk$ é uma lista de inteiros que são criptografias de zero\footnote{A lista tem tamanho polinomial em $\lambda$.}. Os textos da chave pública são criptografados como $c = sk \cdot q + 2r$, onde $q$ é um inteiro aleatório de $\lambda^5$ bits e $2r < sk/2$.
+	\item $Encrypt(pk,m)$: Um bit $m$ é criptografado como $m + 2 \cdot r + 2 \cdot sum$, onde $sum$ é uma soma de um conjunto de textos criptografados da chave pública, e $r$ é um número aleatório tal que $-(2^p) < r < (2^p)$ para $p =  \lambda^2$.
+	\item $Decrypt(sk,c)$ é simplismente $(c \mod sk) \mod 2$ (Se os textos criptografados da chave pública tiverem baixo ruído, o texto criptografado $c$ vai ter baixo ruído\footnote{Ruído é gerado quando um texto é criptografado. Ele se da por $(c \mod sk)$}, logo a descriptografia funciona).
+\end{itemize}
+Além destas três funcões nosso sistema tem uma outra função chamada \textit{Avaluate}. Essa função recebe um circuito \footnote{Representado por operações XOR e AND} com t entradas e conjunto de textos criptografados $\lbrace c_1,c_2,...,c_t \rbrace$ e retorna o resultado do circuito (Operações de soma, subtração e multiplicação). O resultado do circuito descriptografado deve ser igual a saida do circuito com os textos planos como entrada.
+
+Este sistema de criptografia é homomórfico pois podemos somar os textos criptografados como inteiros (Através da função Avaluate) e depois descriptografa-los. Isso funciona pois o ruído tem a mesma paridade que o texto original, porém o ruído aumenta a cada operação até que não é retornado o valor certo ao descriptografar.
+Para que este sistema seja completamente homomórfico temos que ter uma função que diminua o ruído até que outra operação possa ser executada.
+
+\section{De parcialmente para completamente homomórfico}
+Antes de continuarmos, vamos definir alguns conceitos sobre nosso sistema de criptografia atual:
+\begin{itemize}
+	\item O ruído é inserido durante a criptografia de um bit (Função \textit{Encrypt});
+	\item A função \textit{Avaluate} pode fazer adições, subtrações e multiplicações, mas o ruído é aumentado respectivamente.
+	\item O sistema consegue descriptografar até uma certa quantidade de ruído, após disso as respostas não são mais confiáveis.
+	\item Inversamente à função \textit{Encrypt}, \textit{Decrypt} retira o ruído.
+\end{itemize}
+  
+De acordo com ~\cite{easyfhe} Para que nosso sistema possa ser completamente homomórfico, a própria função \textit{Decrypt} é usada para diminuir o ruído.
+Então o sistema deve que ser capaz de computar sua própria função de descriptografar na função $Evaluate$, ou seja, além de somar, subtrair e multiplicar, é necessário suportar a função de descriptografar.
+A função \textit{Decrypt} removeria o ruído de uma criptografia, mas o texto plano estaria exposto. Logo, temos que descriptografar o texto encriptografado por $pk_1$ enquanto ele estiver criptografado por $pk_2$. Para isso temos a seguinte função:
+\\\\
+$Recrypt(pk_i , D, sk_{i-1}', c_{i-1})$:
+\begin{itemize}
+	\item $c_{i-1}' = Encrypt(pk_i, c_{i-1,j})$ para $j = 0$ até $j = N$ onde $N =$ numero de bits de $c_{i-1}$
+	\item Return $c = Evaluate(pk_i, D, sk_{i-1}', c_{i-1}')$
+\end{itemize}
+Onde: $pk_i$ é uma das chaves públicas, $sk_{i-1}'$ é um vetor em que cada posição é um bit de $sk_{i-1}$ criptografado usando $pk_i$, $D$ é o circuito que computa a função $Decrypt$, e $c_{i-1}$ é a criptografia de um bit m usando $pk_{i-1}$.
+  
+A função $Recrypt$ primeiramente criptografa cada um dos bits de $c_{i-1}$, gerando assim um vetor com os bits de $c_{i-1}$ criptografados.
+Esse vetor, em conjunto com o vetor $sk_{i-1}'$ são usados como entrada para o circuito $D$, que é executado dentro da função $Evaluate$.
+Como a função $Decrypt$ está representado por um circuito binário ($D$), e como o sistema consegue executar o circuito $D$ sem que o ruído passe do limite, o resultado $c$ de $Recryp$t é a criptografia de $Decrypt(sk_i-1, c_{i-1})$ usando $pk_i$.
+  
+Ou seja, o bit m criptografado primeiramente por $pk_{i-1}$, agora está criptografado por $pk_{i}$.
+Isso é possível pois após $Encrypt$ o texto está duplamente criptografado, e a função $Evaluate$ remove a criptografia mais interna (A por $pk_{i-1}$).
+É possivel notar que a função $Evaluate$ remove o ruído da criptografia por $pk_{i-1}$ por causa do circuito sendo usado, mas ao mesmo tempo introduz um novo ruído quando avalia a criptografia por $pk_i$.
+Desde que o novo ruído inserido seja menor que o ruído removido, podemos continuar aplicando esse processo sem que o ruído passe do limite.
+  
+Somente isso não torna o sistema completamente homomórfico, a função $Recrypt$ somente muda da criptografia de uma chave $pk_k$ para $pk_{k+1}$.
+Como o objetivo é poder fazer operações nos dados sem que o limite passe do limite, podemos criar um novo circuito que é igual a $D$, mas com uma operação a mais.
+Logo, o circuito usado faz a descriptografia e uma operação (Adição ou multiplicação), fazendo com que o sistema seja completamente homomórfico.
+  
+A chave pública do sistema consiste de um conjunto de chaves públicas $(pk_1, pk_2, ..., pk_{n+1})$ e a chave privada consiste de um conjunto de chaves privadas criptografas $(sk_1, sk_2, ..., sk_n)$, onde $sk_i$ é criptografada por $pk_{i+1}$.
+
+\section{Simplificando a descriptografia}
+Como foi mostrado na seção anterior, se o sistema conseguir executar sua própria função de descriptografar como um circuito binário, então o sistema pode ser transformado em completamente homomórfico.
+Mas o sistema parcialmente descrito ainda não tem essa caracteristica, então ele foi alterado para um sistema que tenha a descriptografia simples o suficiente para poder ser executada.
+  	
+A função de descriptografia do sistema parcialmente homomórfico é:
+\begin{center} $m = (c \mod p) \mod 2$ \end{center}
+Que é equivalente à:
+\begin{center} $m =$ $BMS(c)$ $XOR$ $BMS(APROX(c/p))$ \end{center}
+Onde BMS retorna o bit menos significativo e APROX arredonda para o integer mais próximo.
+  	
+As funções $BMS$ e $XOR$ podem ser executadas com apenas uma operação lógica, a complexidade está em $APROX(c/p)$. Como $c$ e $p$ podem ser números longos, o ruído gerado pode ser maior do que o sistema pode aguentar. O sistema pode executar polinômios de grau menor que P, mas como $c$ e $p$ tem $P$ bits cada um, e como uma multiplicação\footnote{A divisão no caso é representada como uma multiplicação $c \cdot 1/p$.} geraria um polinômio de aproximadamente grau $P$, o ruído pode passar do limite.
+  	
+Com o objetivo de tornar a função de descriptografar mais simples, a sua entrada deve ser pre-processada. Parte da complexidade é jogada para a função de criptografar que agora faz um pós processamento, deixando assim menos trabalho para a função de descriptografia.
+Para isso a função de gerar chave agora incluí uma dica do inteiro $p$. Essa dica é usada durante a criptografia para que a descriptografia fique mais simples.
+Além das funções de gerar chave e de criptografia serem alteradas, a função de descriptografar que multiplica dois números grandes é substituída agora por uma que soma um conjunto relativamente pequeno de números (Resultado da função de criptografia usando a dica de p).
+  	
+As seguintes alterações foram feitas as funções:
+\begin{itemize}
+	\item Key-Gen: A dica do inteiro $p$ é inserida na chave pública na forma de um vetor $y$ = $ \langle y_1, y_2, ..., y_{\beta} \rangle $ de modo que haja um subconjunto  $ S \subset \lbrace 1,...,\beta \rbrace $ de tamanho $ \alpha $ com somatório igual a $1/p$. A chave secreta gerada $sk^{*}$ é um vetor esparço $s \in \lbrace 0,1 \rbrace $ com peso Hamming $ \alpha $. Essa dica é usada pelas funções $Encrypt$ e $Decrypt$.
+  	\item $Encrypt$: Após gerar o texto criptografado c, $Encrypt$ gera um novo vetor $z = \langle z_1, z_2, ..., z_{\beta} \rangle $ onde $ z_i \leftarrow c \cdot y_i $. Esse vetor é o pre-processamento para deixar menos trabalho ao algoritmo $Decrypt$.
+  	\item $Decrypt$: retorna BMS(c) XOR BMS(APROX($ \sum_{i}^{} s_i z_i $)) onde $s_i$ é um elemento de $s$ (Dica na chave privada). Descriptografia funciona pois: \begin{center} $\sum_{i}^{} s_i z_i = \sum_{i}^{} c \cdot s_i y_i = c/p$ mod $2$ \end{center}	
+\end{itemize}
+	
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  
+\section{Como as operações funcionam}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

@@ -1,0 +1,28 @@
+\chapter{Aplicações}
+\label{desenvolvimento}
+A maior parte das aplicações para um sistema de criptografia completamente homomórfico está na alteração de aplicações já existentes, de modo que elas possam ser utlizadas de modo completamente seguro. Alguns exemplos são:
+
+\section{Computação em nuvem}
+Atualmente o uso da 'nuvem' está ficando cada vez mais comum. Porém nossos dados, por estarem em algum servidor público, não estão completamente seguros e eventualmente a segurança desses servidores pode ser comprometida por meio de ataques ao servidor ou outra atividade ilícita.
+Hoje o que podemos fazer para ter mais segurança é manter os nossos dados criptografados na nuvem. Mas se quisermos utilizar esses dados, eles devem ser baixados e manipulados localmente, indo de encontro com o propósito da computação em nuvem.
+	
+Com a criptografia completamente homomórfica é possível fazer buscar e alterações sobre dados criptografados, ou seja, é possível buscar arquivos por palavra-chave mesmo que o servidor não tenha conhecimento dos dados do arquivos. Deste pode realmente é possível delegar processamento de modo seguro.
+	
+\section{Buscas seguras}
+Também é possível fazer buscar criptografadas em "search-engines". Os arqumentos da busca podem ser criptografados pela CCH e usados no servidor em um circuito que representa a função de busca do servidor. As funções desse circuito podem fazer as comparações com os dados criptografados sem nunca saber seus valores reais.
+O resultado do circuito é um texto criptografado, que pode ser descriptografado pela pessoa que criptografou os parametros da busca. Desse modo a busca é completamente sigilosa.
+	
+\section{Segurança de software}
+Uma possível aplicação é a segurança de software, onde os valores de um programa permancem criptografados na memória. Cada operação do programa sobre os dados pode ser representada por um circuito de NANDs e aplicada aos dados e os dados só precisam ser descriptografados na saída do programa.
+	
+\section{Re-criptografia de Proxys}
+Utilizando uma propriedade da criptografia completamente homomórfica é possivel fazer com que um texto criptografado por uma chave pública $a$, possa ser transaformado em um texto criptografado por $b$, sem que a chave privada de $a$ ou o textos original sejam comprometidos.
+Ou seja, o proxy dono da chave pública $a$ pode enviar uma mensagem para um outro proxy com chave pública $b$ de modo seguro.
+	
+Sistemas que permitem esse comportamento já existem porém eles podem não ser bilaterais, ou seja, conseguem mudar a criptografia de $a$ para $b$ mas não de $b$ para $a$. Ou tem limitações sobre o número de vezes que uma mensagem pode ser recriptografada. A CCH não tem tais limitações.
+
+\section{Filtros de emails sigilosos}
+Em um sistema onde os emails são criptografados para que apenas o usuario tenha acesso os dados, usando a CCH é possível executar filtros sobre os emails com relação a palavras dentro do email, destinatário, etc, sem que o servidor tenha acesso direto aos dados.
+	
+\section{Limitações atuais}
+Grande parte da limitação atual está na velocidade do sistema e no tamanho dos textos criptografados. A criptografia funciona gerando um inteiro para cada bit do texto original, fazendo com que os textos criptografados sejam muito grandes, além das própias funções de criptografar, descriptografar e executar funções também serem lentas para os padrões de hoje.

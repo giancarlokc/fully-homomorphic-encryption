@@ -1,0 +1,16 @@
+\chapter{Criptografia Completamente Homomórfica}
+\label{revisao}
+
+\section{Origens}
+Um sistema de criptografia é chamado de homomórfico quando é possível fazer operações matemáticas nos dados criptografados de modo que, quando eles forem descriptografados, as operações matemáticas foram aplicadas aos dados originais, sem que informações sobre o texto original tenham vazado.
+Ou seja, um número $x$ é criptografado e uma operação de multiplicação por 2 é feita nos dados criptografados, quando os dados forem criptografados o resultado será $2*x$.
+
+Essa noção de criptografia foi formalmente apresentada logo após a invenção do RSA quando foi observado que ele é homomórfico em relação a multiplicação, porém não para adição.
+Isso levou a inevitável questão de se é possivel criar um sistema que seja homomórfico com relação a adição e multiplicação (Completamente homomórfico) e o que podemos fazer com tal sistema.
+
+\section{Definição}
+Um sistema de criptografia é completamente homomórfico quando é possível executar adições e multiplicações sobre os dados criptografados, sem limite no número de operações a serem feitas em sequência.
+	Como qualquer função computacional pode ser representada por adições e multiplicações, isso significa que poderiamos executar qualquer função sem saber os dados originais. Várias aplicações seriam possíveis para um sistema como este, tais como computação em nuvem compatível com privacidade, bancos de dados privados, tercerização de processamento de modo seguro, entre outros descritos na seção seguinte.
+	
+\section{O sistema estudado}
+Só depois de 30 anos após a invenção do RSA, uma solução plausível foi encontrada para o problema da criptografia completamente homomórfica. Ela foi apresentada por Gentry em *. Sua primeira solução é mais teórica e generalizada então a construção explicada e testada nesta monografia é baseada no sistema completamente homomórfico sobre inteiros de Gentry, Halevi, Dijk e Vaikuntanathan que se baseia nos mesmo princípios.

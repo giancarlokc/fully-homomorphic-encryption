@@ -1,0 +1,13 @@
+\chapter{Introdução}
+\label{introducao}
+Esta monografia tem como objetivo apresentar o problema da Criptografia Completamente Homomórfica com suas possíveis aplicações e limitações.
+Essa criptografia, apesar de recente, tem a capacidade de inovar o campo da computação em nuvem, pois ela não necessita que os dados sejam descriptografados para que operações sejam aplicadas nos dados originais.
+A solução apresentada por Gentry para o problema de Criptografia Completamente Homomórfica ~\cite{gentrythesis}, atualmente considerada a melhor solução para tal problema, é descrita com relação a criptografia sobre inteiros ~\cite{fheintegers} e seu método de construção é explicado seguindo os seus passos de contrução originais e padrões de implementação utilizados em ~\cite{gentryhalevi}.
+
+Possíveis aplicações para esse sistema são discutidas, mostrando qual o papel da criptografia completamente homomórfica nelas e qual a viabilidade de implementação delas.
+
+Uma seção é dedicada a verificar a segurança deste sistema de criptografia, verificando o que garante que nenhuma informação seja liberada quando operações são aplicadas ao texto criptografado uma vez que uma dica sobre a chave privada é inserida na chave pública.
+
+Além disso, testes foram realizados utilizando uma implementação deste sistema de criptografia \footnote{A implementação escolhida é baseada na criptografia com relação a inteiros, que é explicada em \cite{art:REF_ART_1}} e seus resultados foram comparados com outros sistemas de criptografia conhecidos, como RSA.
+
+Concluímos com algumas observações sobre as diferenças entre essa criptografia e outras criptografias assimétricas, limitações atuais, possibilidades futuras e melhorias necessárias para fazer com que a criptografia completamente homomórfica possa ser usada em larga escala.
