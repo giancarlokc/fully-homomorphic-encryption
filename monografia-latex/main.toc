@@ -19,16 +19,16 @@
 \contentsline {section}{\numberline {1.4}Constru\IeC {\c c}\IeC {\~a}o do sistema}{8}{section.1.4}
 \contentsline {subsection}{\numberline {1.4.1}Sistema parcialmente homom\IeC {\'o}rfico}{9}{subsection.1.4.1}
 \contentsline {subsection}{\numberline {1.4.2}De parcialmente para completamente homom\IeC {\'o}rfico}{10}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Simplificando a descriptografia}{11}{subsection.1.4.3}
-\contentsline {subsection}{\numberline {1.4.4}Como as opera\IeC {\c c}\IeC {\~o}es funcionam}{12}{subsection.1.4.4}
-\contentsline {section}{\numberline {1.5}Seguran\IeC {\c c}a}{13}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Ataques conhecidos}{13}{subsection.1.5.1}
-\contentsline {section}{\numberline {1.6}Implementa\IeC {\c c}\IeC {\~a}o do algoritmo}{15}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}O que est\IeC {\'a} implementado}{15}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Diferen\IeC {\c c}as entre a implementa\IeC {\c c}\IeC {\~a}o e o sistema de Gentry}{15}{subsection.1.6.2}
-\contentsline {section}{\numberline {1.7}Testes e Compara\IeC {\c c}\IeC {\~o}es}{16}{section.1.7}
-\contentsline {subsection}{\numberline {1.7.1}Arquitetura usada}{16}{subsection.1.7.1}
-\contentsline {subsection}{\numberline {1.7.2}Implementa\IeC {\c c}\IeC {\~a}o usada para compara\IeC {\c c}\IeC {\~a}o}{16}{subsection.1.7.2}
-\contentsline {subsection}{\numberline {1.7.3}Metodolog\IeC {\'\i }a}{16}{subsection.1.7.3}
-\contentsline {subsection}{\numberline {1.7.4}Compara\IeC {\c c}\IeC {\~o}es e Resultados}{17}{subsection.1.7.4}
-\contentsline {section}{\numberline {1.8}Conclus\IeC {\~o}es}{19}{section.1.8}
+\contentsline {subsection}{\numberline {1.4.3}Simplificando a descriptografia}{12}{subsection.1.4.3}
+\contentsline {subsection}{\numberline {1.4.4}Como as opera\IeC {\c c}\IeC {\~o}es funcionam}{13}{subsection.1.4.4}
+\contentsline {section}{\numberline {1.5}Seguran\IeC {\c c}a}{15}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Ataques conhecidos}{15}{subsection.1.5.1}
+\contentsline {section}{\numberline {1.6}Implementa\IeC {\c c}\IeC {\~a}o do algoritmo}{17}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}O que est\IeC {\'a} implementado}{17}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Diferen\IeC {\c c}as entre a implementa\IeC {\c c}\IeC {\~a}o e o sistema de Gentry}{17}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Testes e Compara\IeC {\c c}\IeC {\~o}es}{18}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Arquitetura usada}{18}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Implementa\IeC {\c c}\IeC {\~a}o usada para compara\IeC {\c c}\IeC {\~a}o}{18}{subsection.1.7.2}
+\contentsline {subsection}{\numberline {1.7.3}Metodolog\IeC {\'\i }a}{18}{subsection.1.7.3}
+\contentsline {subsection}{\numberline {1.7.4}Compara\IeC {\c c}\IeC {\~o}es e Resultados}{19}{subsection.1.7.4}
+\contentsline {section}{\numberline {1.8}Conclus\IeC {\~o}es}{21}{section.1.8}
