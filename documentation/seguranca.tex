@@ -1,14 +1,24 @@
 \chapter{Segurança}
-- probabilidade de 'adivinhar' o plain text e a chave privada
-- mostrar calculo de probabilidade
+De acordo com Gentry, para que uma criptografia seja considerada segura ela deve atender dois critérios: \textit{one-wayness} e \textit{segurança semântica}~\cite{probability}.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\section{Padrões de segurança}
+\textit{One-wayness} significa que, dado uma chave pública $pk$ e uma mensagem criptografada $c$ por $pk$, deve ser difícil para um adversário gerar o texto plano correspondente. Um algoritmo que rode em tempo polinomial $\lambda$ deve ter uma probabilidade de sucesso menor que $1/\lambda^k$ para uma qualquer constante $k$.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Para que um sistema seja \textit{semanticamente seguro}, dado um texto criptografado $c$ que criptografa o texto plano $m_0$ ou $m_1$, o adversário deve ter 50\% de chance de acerto. Se ele tiver mais, significa que há algum processo além de pura probabilidade. Por isso um sistema determinístico\footnote{Onde há apenas um texto criptografado para cada texto plano.} não é considerado semanticamente seguro, pois o adversário pode gerar as criptografias dos textos $m_0$ e $m_1$ e comparar com $c$. Isso nos diz que um sistema seguro deve ser probabilístico.
 
-\section{Ataques conhecidos}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\section{Prova de segurança semântica}
+Apesar do sistema de criptografia descrito ser "maleável" devido à função $Evaluate$ que muda a criptografia de uma chave para outra, o sistema continua sendo \textit{semanticamente seguro}. Gentry mostra isso comparando a função de criptografia com o problema de encontrar o \textit{maior divisor comum} (MDC). Euclides mostra que achar o MDC é fácil, porém na função de criptografia o que temos é MDC aproximado.
+\begin{center}
+	$x_1 = s_1 + p \cdot q_1$
+\end{center}
+Com $s_i$ muito menor que p e com um parâmetro de segurança $\lambda$, esse problema não pode ser resolvido polinomialmente com relação ao comprimento de bits de $x_1$.
+
+Além disso, Gentry mostra que esse problema de MDC aproximado pode ser reduzido ao problema de segurança semântica do sistema. Desse modo a segurança semântica só pode ser quebrada se o problema de MDC aproximado for possível em tempo polinomial.
+
+\section{Segurança com relação à dica dentro chaves}
+Como visto previamente, para que o sistema seja completamente homomórfico uma dica da chave secreta é colocada na chave pública. Essa maleabilidade pode dar a impressão que o sistema deixaria de ser seguro, no entanto Gentry prova que o sistema continua seguro desde que:
+\begin{itemize}
+	\item O sistema parcialmente homomórfico que da origem ao sistema completamente homomórfico seja semanticamente seguro.
+	\item Dado um conjunto de números $y$ e outro número $s$, seja difícil achar um subconjunto esparço de $y$ com somatório igual a $s$.
+\end{itemize}
+O último representa o problema de descobrir $p$ a partir da dica. Esse problema é chamado de Problema da Soma de Subconjunto Esparço (PSSE) e já foi estudado com relação a sistema de criptografias com servidores. Se o tamanho do vetor e seu peso Hamming forem escolhidos corretamente, ele não pode ser resolvido em tempo polinomial.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.2)  30 NOV 2015 21:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.2)  21 DEC 2015 10:48
 entering extended mode
 **tg.tex
 (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\tg.tex
@@ -530,138 +530,109 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\abstract.tex)
 [4
 
-] (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\introducao.tex
+] (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\abreviaturas.tex) 
+[5] (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\introducao.tex
 Cap\'{\i }tulo 1.
-
-LaTeX Warning: Citation `art:REF_ART_1' on page 1 undefined on input line 11.
-
-) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\revisao.tex
 [1
 
-]
+]) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\revisao.tex
+[2]
 Cap\'{\i }tulo 2.
-)
-(C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\desenvolvimento.tex
-[2
+[3
 
-] [3]
-Cap\'{\i }tulo 3.
-[4
-
-]) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\construcao.tex
-[5] [6]
-Cap\'{\i }tulo 4.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 9.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
- [7
-
-]
-
-LaTeX Warning: Citation `rothblum' on page 8 undefined on input line 20.
-
-
-Overfull \hbox (4.25023pt too wide) in paragraph at lines 24--25
-\OT1/cmr/m/n/12 func~ao re-cebe um cir-cuito [] com t en-tra-das e con-junto d
-e tex-tos crip-to-gra-fa-dos $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 c[]; c[]; :::;
- c[]\OMS/cmsy/m/n/12 g$
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 38--43
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
+ [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 54--59
 
  []
 
-[9]
-Overfull \hbox (13.66057pt too wide) in paragraph at lines 62--63
+[6]
+Overfull \hbox (13.66057pt too wide) in paragraph at lines 78--79
 []\OT1/cmr/m/n/12 A chave publica do sis-tema con-siste de um con-junto de cha
 -ves publicas $(\OML/cmm/m/it/12 pk[]; pk[]; :::; pk[]\OT1/cmr/m/n/12 )$
  []
 
 
-Overfull \hbox (1.65202pt too wide) in paragraph at lines 62--63
+Overfull \hbox (1.65202pt too wide) in paragraph at lines 78--79
 \OT1/cmr/m/n/12 e a chave pri-vada con-siste de um con-junto de cha-ves pri-va-
 das crip-to-gra-fas $(\OML/cmm/m/it/12 sk[]; sk[]; :::; sk[]\OT1/cmr/m/n/12 )$,
 
  []
 
-[10] [11])
-(C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\seguranca.tex
-[12] [13]
-Cap\'{\i }tulo 5.
+[7] [8] [9] [10])
+(C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\desenvolvimento.tex
+[11]
+Cap\'{\i }tulo 3.
+[12
+
+]) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\testes.tex
+[13]
+Cap\'{\i }tulo 4.
 [14
 
-]) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\resultados.tex [1
-5]
-Cap\'{\i }tulo 6.
-) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\testes.tex
-[16
-
-] [17]
-Cap\'{\i }tulo 7.
-[18
-
-] [19])
+] [15])
 (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\conclusao.tex
-[20]
-Cap\'{\i }tulo 8.
-) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\tg.bbl [21
+[16]
+Cap\'{\i }tulo 5.
+) (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\tg.bbl [17
 
 ]
-Underfull \hbox (badness 2564) in paragraph at lines 9--12
+Underfull \hbox (badness 2478) in paragraph at lines 4--7
+[]\OT1/cmr/m/n/12 J.S. Co-ron.  An im-ple-men-ta-tion of the dghv fully ho-mo-m
+orphic scheme.
+ []
+
+
+Underfull \hbox (badness 1960) in paragraph at lines 20--23
 []\OT1/cmr/m/n/12 Craig Gen-try.  A fully ho-mo-morphic en-cryp-tion scheme.  D
 is-ponvel em:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
+Underfull \hbox (badness 10000) in paragraph at lines 35--38
 []\OT1/cmr/m/n/12 Shai Ha-levi Vi-nod Vai-kun-ta-nathan Mar-ten van Dijk, Craig
  Gen-try.
  []
 
 
-Underfull \hbox (badness 5217) in paragraph at lines 19--22
+Underfull \hbox (badness 4084) in paragraph at lines 35--38
 \OT1/cmr/m/n/12 Fully ho-mo-morphic en-cryp-tion over the in-te-gers, 2010.  Di
 s-ponvel em:
  []
 
-) [22
+) [18
 
-] (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\tg.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] (C:\Users\Giancarlo\Documents\GitHub\fhe\fhe\documentation\tg.aux) ) 
 Here is how much of TeX's memory you used:
- 4679 strings out of 493921
- 64601 string characters out of 3144865
+ 4677 strings out of 493921
+ 64340 string characters out of 3144865
  136753 words of memory out of 3000000
- 7844 multiletter control sequences out of 15000+200000
- 11903 words of font info for 46 fonts, out of 3000000 for 9000
+ 7849 multiletter control sequences out of 15000+200000
+ 11595 words of font info for 45 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,8n,40p,845b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/
-Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on tg.pdf (28 pages, 206831 bytes).
+ 42i,8n,40p,842b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on tg.pdf (25 pages, 201714 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
+ 131 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

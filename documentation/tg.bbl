@@ -1,4 +1,15 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{coron}
+J.S. Coron.
+\newblock An implementation of the dghv fully homomorphic scheme.
+\newblock https://github.com/coron/fhe.
+
+\bibitem{opttwo}
+Shai~Halevi Craig~Gentry.
+\newblock Fully homomorphic encryption without squashing using depth-3
+  arithmetic circuits, 2011.
+\newblock Disponível em: https://eprint.iacr.org/2011/279.
 
 \bibitem{gentryhalevi}
 Shai~Halevi Craig~Gentry.
@@ -15,6 +26,11 @@ Craig Gentry.
 \newblock Computing arbitrary functions of encrypted data, 2010.
 \newblock Disponível em: https://crypto.stanford.edu/craig/easy-fhe.pdf.
 
+\bibitem{fhew}
+Daniele~Micciancio Léo~Ducas.
+\newblock Bootstrapping homomorphic encryption in less than a second, 2014.
+\newblock Disponível em: http://eprint.iacr.org/2014/816.
+
 \bibitem{fheintegers}
 Shai Halevi Vinod~Vaikuntanathan Marten~van Dijk, Craig~Gentry.
 \newblock Fully homomorphic encryption over the integers, 2010.
@@ -24,5 +40,15 @@ Shai Halevi Vinod~Vaikuntanathan Marten~van Dijk, Craig~Gentry.
 Ron Rothblum.
 \newblock Homomorphic encryption: from private-key to public-key, 2010.
 \newblock Disponível em: http://eccc.hpi-web.de/report/2010/146/.
+
+\bibitem{probability}
+S.~Micali S.~Goldwasser.
+\newblock Probabilistic encryption, 1984.
+\newblock J. Comput. Syst. Sci., 28(2):270–299.
+
+\bibitem{optone}
+Craig~Gentry Zvika~Brakerski.
+\newblock Fully homomorphic encryption without bootstrapping, 2011.
+\newblock Disponível em: https://eprint.iacr.org/2011/277.
 
 \end{thebibliography}

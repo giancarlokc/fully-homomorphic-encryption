@@ -1,7 +1,19 @@
 \chapter{Testes e Resultados}
 \label{testes}
+\section{Implementação do algoritmo}
+\label{resultados}
+A implementação usada para testes com criptografia completamente homomórfica foi a biblioteca FHEW\footnote{Pode ser encontrada em https://github.com/lducas/FHEW} criada por Leo Ducas e Daniele Micciancio baseada em~\cite{fhew}.
+
+A biblioteca ofereçe funções para:
+\begin{itemize}
+	\item Criar chave secreta e chave pública
+	\item Criptografar bit
+	\item Descriptografar bit criptografado
+	\item Executar um NAND homomórfico em dados criptografados
+\end{itemize}
+
 \section{Arquitetura usada}
-A arquitetura do computador usada para os testes é a seguinte:
+A arquitetura do computador usado para os testes é a seguinte:
 \begin{itemize}
 	\item \textbf{Processador}: Intel(R) Core(TM) i5-3337U CPU @ 1.80GHz
 	\item \textbf{Memória RAM}: 8,00 GB (7,88 GB utilizáveis)
@@ -9,42 +21,45 @@ A arquitetura do computador usada para os testes é a seguinte:
 \end{itemize}
 
 \section{Algoritmo usado para comparação}
-O algoritmo RSA foi usado como comparação com o sistema completamente homomórfico pois ele é usado em larga escala atualmente, além de ser a origem da CCH. A implementação utilizada foi a \footnote{Pode ser encontrada em ?} por ser próxima a um RSA puro (sem otimizações) e por ser na mesma linguagem de programação que a implementação do CCH. Desse modo a compilação pode ser feita com o mesmo compilador e nível automático de otimização (-O1).
+O algoritmo RSA foi usado como comparação pois ele é usado em larga escala atualmente, além de ser a origem da CCH. A implementação utilizada foi a biblioteca Crypto++\footnote{Pode ser encontrada em www.http://cryptopp.com/} por ser próxima a um RSA puro (sem muitas otimizações) e por ser na mesma linguagem de programação que a implementação do CCH. Desse modo a compilação pode ser feita com o mesmo compilador e nível automático de otimização (-O1).
 	
 \section{Metodología}
-Podemos dividir a comparação em três etapas: velocidade, segurança e funcionalidades.
+É possivel dividir a comparação em três etapas: velocidade, segurança e funcionalidades.
+
+Para comparar a velocidade dos dois tipos de criptografia os testes foram realizados em um conjunto de 100 strings de 80 bits cada (10 caracteres). Cada string é criptografada usando RSA e CCH, e em seguida ela é descriptografada. O tempo médio das operações do RSA para as 100 strings é calculado e comparado com as do CCH.
 	
-Para comparar a velocidade dos dois tipos de criptografia os testes foram realizados em um conjunto de 100 strings de 80 bits cada (10 caracteres). Cada string é criptografada usando RSA e CCH, e em seguida ela é descriptografada. O tempo médio das operações do RSA para as 100 strings é calculado e comparado com as do CCH. Ainda na seção de velocidade olhamos para o tempo geração e o tamanho das chaves geradas pelos sistemas.
-	
-Para comparar a segurança podemos olhar para estratégias comuns de ataques e calcular a probabilidade de tal ataque ser bem sucedido para cada criptografia.
+Para comparar a segurança podemos olhar para estratégias comuns de ataques e verificar a probabilidade de tal ataque ser bem sucedido para cada criptografia.
 	
 Para comparar a funcionalidade olhamos para o que a criptografia pode oferecer, e baseado nas comparações anteriores quais são os pontos fortes e pontos fracos de cada uma.
 	
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	
 \section{Comparações e Resultados}
-É possivel ver que o sistema atual de criptografia completamente homomórfica é muito mais lento do que o RSA. Os tempos obtidos nos testes são podem ser vistos na tabela *.
+	\subsection{Velocidade}
+	É possivel ver que o sistema atual de criptografia completamente homomórfica é muito mais lento do que o RSA. Os tempos obtidos nos testes são podem ser vistos na tabela \ref{tab:LABEL_TAB_RESULTADOS}.
 	
-\begin{table}[!h]
-  \centering
-  \begin{tabular}{ |l|l|l|l| }
-    \hline
-      Sistema & Criptografia & Descriptografia & Operação NAND \\
-    \hline
-      RSA & 21 Kb/s & 21 Kb/s & - \\
-    \hline
-      CCH & 214 b/s & 188 b/s & ? \\
-    \hline
-  \end{tabular}
-  \caption{Média dos tempos dos testes}
-  \label{tab:LABEL_TAB_RESULTADOS}
-\end{table}
+	\begin{table}[!h]
+  	\centering
+  	\begin{tabular}{ |l|l|l|l| }
+    	\hline
+      	Sistema & Criptografia & Descriptografia & Operação NAND \\
+    	\hline
+      	RSA & 21 Kb/s & 21 Kb/s & Não disponível \\
+    	\hline
+      	CCH & 214 b/s & 188 b/s & 0,46 b/s \\
+    	\hline
+  	\end{tabular}
+  	\caption{Média dos tempos dos testes}
+  	\label{tab:LABEL_TAB_RESULTADOS}
+	\end{table}
 
-Outra diferença é o tamanho das chaves geradas onde o RSA gera chaves com tamanhos X e Y para chave pública e secreta respectivamente e o CCH gera chaves com tamanhos Z e W para chave pública e secreta respectivamente. O tempo para criptografar e descriptografar é o que faz com que a CCH não possa ser usada em larga escala, mas é possivel ver avanços que estão sendo feitos para tornar essa criptografia mais utilizável. Um exemplo é * que mostra um modo de gerar uma chave comprimida (De 2GB para 20Mb?), enquanto * mostra várias otimizações que tendem a diminuir o tempo para criptografar e descriptografar.
+	Os tempos para criptografar e descriptografar são muito mais lentos no CCH, porém o que faz com que a CCH não possa ser usada em larga escala é o tempo para fazer operações homomórficas. É possivel ver avanços que estão sendo feitos para tornar essa criptografia mais utilizável. Várias possíveis otimizações são descritas em~\cite{optone} e~\cite{opttwo} que mostram como diminuir o tempo para criptografar e da função $Recrypt$ (Para deixar as operações mais rápidas). Também é possível notar que o tamanho da chave pública nesta implementação tem aproximadamente 12GB, mas uma implementação do algoritmo encontrada no Github sugere a possibilidade de usar uma chave comprimida com 2MB~\cite{coron}.
 	
-Com relação a segurança destes dois sistemas é possível dizer que nos dois casos ela se baseia no problema NP-Complexo de máximo divisor comum,
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	\subsection{Segurança}
+	Tanto a segurança do RSA quanto da CCH é baseada em problemas matemáticos e no fato de eles serem difíceis (sem solução eficiente).
+	A CCH tem sua segurança baseada no problema de MDC aproximado e no PSSE, que já foram mencionados previamente. O RSA também tem sua segurança baseada em dois problemas, o de fatoração de números grandes\footnote{Fatoração de números grandes é a decomposição de um inteiro composto grande em um produto de números menores} e o problema RSA\footnote{O problema RSA pode ser definido como encontrar a $e$-raiz de um número aleatório}.
 	
-O RSA é usado na maioria das aplicações que usam criptografia assimétrica, além de possibilitar assinaturas digitais e é considerado um dos algorimos assimétricos mais seguros já construídos.
-Mas na questão de funcionalidade, apesar do RSA ser muito presente hoje em dia, a CCH é muito mais versátil e torna muitas aplicações possíveis pois ele mantém a segurança do RSA mas o extende para ter total sigilo\footnote{Por total sigilo se quer dizer que nem quem faz operações nos dados consegue vê-los} sobre os dados criptografados.
-Obviamente cada criptigrafia tem um uso diferente mas é possível ver que a CCH tem a capacidade de revolucionar o campo da criptografia, assim como o RSA fez quando foi criado.
+	Comparar a complexidade destes problemas não está no escopo desta monografia, mas é possível dizer que os dois sistemas de criptografia são seguros.
+	
+	\subsection{Funcionalidade}
+	O RSA é usado na maioria das aplicações que usam criptografia assimétrica, além de possibilitar assinaturas digitais e é considerado um dos algorimos assimétricos mais seguros já construídos.
+	Mas na questão de funcionalidade, apesar do RSA ser muito presente hoje em dia, a CCH é muito mais versátil e torna muitas aplicações possíveis pois ele mantém a segurança do RSA mas o extende para ter total sigilo\footnote{Por total sigilo se quer dizer que nem quem faz operações nos dados consegue vê-los} sobre os dados criptografados.
+	Obviamente cada criptigrafia tem um uso diferente mas é possível ver que a CCH tem a capacidade de revolucionar o campo da criptografia, assim como o RSA fez quando foi criado.
