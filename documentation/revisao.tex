@@ -12,13 +12,13 @@ Um sistema de criptografia é completamente homomórfico quando é possível exe
 	Como qualquer função computacional pode ser representada por adições e multiplicações, isso significa que poderiamos executar qualquer função sem saber os dados originais. Várias aplicações seriam possíveis para um sistema como este, tais como computação em nuvem compatível com privacidade, bancos de dados privados, tercerização de processamento de modo seguro, entre outros.
 	
 \section{O sistema estudado}
-Só depois de 30 anos após a invenção do RSA, uma solução plausível foi encontrada para o problema da criptografia completamente homomórfica. Ela foi apresentada por Gentry em sua tese de doutorado~\cite{gentrythesis}. Sua primeira solução é mais teórica e generalizada, a construção descrita e testada nesta monografia é baseada no sistema completamente homomórfico sobre inteiros~\cite{fheintegers} de Gentry, Halevi, Dijk e Vaikuntanathan que se baseia nos mesmo princípios.
+Só depois de 30 anos após a invenção do RSA, uma solução plausível foi encontrada para o problema da criptografia completamente homomórfica. Ela foi apresentada por Gentry em sua tese de doutorado~\cite{gentrythesis}. Sua primeira solução é mais teórica e generalizada. A construção descrita e testada nesta monografia é baseada no sistema completamente homomórfico sobre inteiros~\cite{fheintegers} de Gentry, Halevi, Dijk e Vaikuntanathan que se baseia nos mesmo princípios.
 
 \section{Construção do sistema}
 \label{construcao}
 O sistema apresentado por Gentry é um sistema de criptografia assimétrico com quatro algoritmos básicos: \textit{KeyGen}, \textit{Encrypt}, \textit{Decrypt} e \textit{Evaluate}. $KeyGen$ gera uma chave pública (disponível para qualquer um) e uma chave privada, o algoritmo $Encrypt$ usa a chave pública para criptografar os dados e o algoritmo $Decrypt$ usa a chave privada para descriptografar os dados. A diferença desse modelo para um sistema de chave pública não completamente homomórfico está no algoritmo $Evaluate$. Este algoritmo suporta certas funções que podem ser aplicadas nos dados, de modo que para cada função \textit{f} o algoritmo $Evaluate$ recebe um texto que criptografa os dados $(m_1, m_2, ..., m_i)$ e retorna um texto que criptografa $f(m_1, m_2, ..., m_i)$.
 
-Para que o sistema seja completamente homomórfico, o algoritmo \textit{Evaluate} deve computar qualquer algoritmo. Um modelo equivalente é a máquina de Turing, que pode simular qualquer algoritmo usando adições e multiplicações\footnote{Multiplicações modulo 2}. Logo, o algoritmo só precisa computar essas duas funções.
+Para que o sistema seja completamente homomórfico, a função \textit{Evaluate} deve computar qualquer algoritmo. Um modelo equivalente é a máquina de Turing, que pode simular qualquer algoritmo usando adições e multiplicações\footnote{Multiplicações modulo 2}. Logo, o algoritmo só precisa computar essas duas funções.
 
 Antes de começar a construção é necessário formalizar algumas restrições para o sistema de criptografia, uma vez que o objetivo desse tipo de criptografia é que o 'processamento' possa ser delegado de modo seguro.
 \begin{itemize}

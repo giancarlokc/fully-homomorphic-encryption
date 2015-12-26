@@ -32,9 +32,8 @@ Para comparar a segurança podemos olhar para estratégias comuns de ataques e v
 	
 Para comparar a funcionalidade olhamos para o que a criptografia pode oferecer, e baseado nas comparações anteriores quais são os pontos fortes e pontos fracos de cada uma.
 	
-\section{Comparações e Resultados}
-	\subsection{Velocidade}
-	É possivel ver que o sistema atual de criptografia completamente homomórfica é muito mais lento do que o RSA. Os tempos obtidos nos testes são podem ser vistos na tabela \ref{tab:LABEL_TAB_RESULTADOS}.
+\section{Velocidade}
+É possivel ver que o sistema atual de criptografia completamente homomórfica é muito mais lento do que o RSA. Os tempos obtidos nos testes são podem ser vistos na tabela \ref{tab:LABEL_TAB_RESULTADOS}.
 	
 	\begin{table}[!h]
   	\centering
@@ -53,13 +52,13 @@ Para comparar a funcionalidade olhamos para o que a criptografia pode oferecer, 
 
 	Os tempos para criptografar e descriptografar são muito mais lentos no CCH, porém o que faz com que a CCH não possa ser usada em larga escala é o tempo para fazer operações homomórficas. É possivel ver avanços que estão sendo feitos para tornar essa criptografia mais utilizável. Várias possíveis otimizações são descritas em~\cite{optone} e~\cite{opttwo} que mostram como diminuir o tempo para criptografar e da função $Recrypt$ (Para deixar as operações mais rápidas). Também é possível notar que o tamanho da chave pública nesta implementação tem aproximadamente 12GB, mas uma implementação do algoritmo encontrada no Github sugere a possibilidade de usar uma chave comprimida com 2MB~\cite{coron}.
 	
-	\subsection{Segurança}
+\section{Segurança}
 	Tanto a segurança do RSA quanto da CCH é baseada em problemas matemáticos e no fato de eles serem difíceis (sem solução eficiente).
 	A CCH tem sua segurança baseada no problema de MDC aproximado e no PSSE, que já foram mencionados previamente. O RSA também tem sua segurança baseada em dois problemas, o de fatoração de números grandes\footnote{Fatoração de números grandes é a decomposição de um inteiro composto grande em um produto de números menores} e o problema RSA\footnote{O problema RSA pode ser definido como encontrar a $e$-raiz de um número aleatório}.
 	
 	Comparar a complexidade destes problemas não está no escopo desta monografia, mas é possível dizer que os dois sistemas de criptografia são seguros.
 	
-	\subsection{Funcionalidade}
+\section{Funcionalidade}
 	O RSA é usado na maioria das aplicações que usam criptografia assimétrica, além de possibilitar assinaturas digitais e é considerado um dos algorimos assimétricos mais seguros já construídos.
 	Mas na questão de funcionalidade, apesar do RSA ser muito presente hoje em dia, a CCH é muito mais versátil e torna muitas aplicações possíveis pois ele mantém a segurança do RSA mas o extende para ter total sigilo\footnote{Por total sigilo se quer dizer que nem quem faz operações nos dados consegue vê-los} sobre os dados criptografados.
 	Obviamente cada criptigrafia tem um uso diferente mas é possível ver que a CCH tem a capacidade de revolucionar o campo da criptografia, assim como o RSA fez quando foi criado.
